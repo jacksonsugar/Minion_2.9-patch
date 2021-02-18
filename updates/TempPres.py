@@ -96,7 +96,7 @@ if iniP100 == True:
         exit(1)
     # We have to read values from sensor to update pressure and temperature
     if Psensor.read():
-        Pres_ini = P100sensor.pressure()
+        Pres_ini = Psensor.pressure()
     else:
         Pres_ini = "Broken"
 
