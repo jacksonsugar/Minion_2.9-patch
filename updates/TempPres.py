@@ -148,6 +148,8 @@ while NumSamples <= TotalSamples:
       
     Pres_ini = Psensor.pressure()
 
+    print(Pres_ini)
+    
     if Pres_ini >= MAX_Depth:
         file.write("Minion Exceeded Depth Maximum!")
         abortMission(configLoc)
