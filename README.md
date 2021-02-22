@@ -1,2 +1,2 @@
 # Minion_2.9-patch
-Updates missing sensor drivers
+Updates files and installs missing sensor drivers
