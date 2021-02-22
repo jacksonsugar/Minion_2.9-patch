@@ -9,6 +9,8 @@ os.system('sudo rm -r /home/pi/Desktop/Minion_config.ini /home/pi/Documents/Mini
 
 os.system('sudo rm -r /home/pi/Documents/Minion_scripts/TempPres_IF.py')
 
+os.system('sudo rm -r /home/pi/Documents/Minion_scripts/Minion_2.9_Systemtest.py')
+
 time.sleep(1)
 # Add new files
 print('Replacing new files...')
