@@ -9,7 +9,7 @@ os.system('sudo rm -r /home/pi/Desktop/Minion_config.ini /home/pi/Documents/Mini
 
 os.system('sudo rm -r /home/pi/Documents/Minion_scripts/TempPres_IF.py')
 
-os.system('sudo rm -r /home/pi/Documents/Minion_scripts/Minion_2.9_Systemtest.py')
+#os.system('sudo rm -r /home/pi/Documents/Minion_scripts/Minion_2.9_Systemtest.py')
 
 time.sleep(1)
 # Add new files
@@ -17,7 +17,7 @@ print('Replacing new files...')
 
 os.system('sudo cp updates/Minion_config.ini /home/pi/Desktop/Minion_config.ini')
 
-os.system('sudo cp updates/Minion_2.9_Systemtest.py updates/Iridium_gps.py updates/minsat.py updates/Minion_2.9_Systemtest.py updates/Minion_DeploymentHandler.py updates/Recovery_Sampler.py updates/Extended_Sampler.py updates/TempPres.py /home/pi/Documents/Minion_scripts/')
+os.system('sudo cp updates/Iridium_gps.py updates/minsat.py updates/Minion_2.9_Systemtest.py updates/Minion_DeploymentHandler.py updates/Recovery_Sampler.py updates/Extended_Sampler.py updates/TempPres.py /home/pi/Documents/Minion_scripts/')
 
 os.system('sudo mkdir /home/pi/Documents/drivers')
 # Clone repos
