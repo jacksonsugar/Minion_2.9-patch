@@ -25,16 +25,13 @@ os.chdir('/home/pi/Documents/drivers/')
 os.system('git clone https://github.com/bluerobotics/tsys01-python.git')
 os.system('git clone https://github.com/bluerobotics/ms5837-python.git')
 os.system('git clone https://github.com/bluerobotics/KellerLD-python.git')
-os.system('git clone https://github.com/adafruit/Adafruit_Python_ADXL345.git')
+os.system('https://github.com/pimoroni/adxl345-python.git')
 os.system('git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git')
-# Install acc driver
-os.chdir('Adafruit_Python_ADXL345/')
-os.system('sudo python setup.py install')
-os.chdir('..')
 # Install adc driver
 os.chdir('Adafruit_Python_ADS1x15/')
 os.system('sudo python setup.py install')
 
+os.system('sudo cp /home/pi/Documents/drivers/adxl345-python/adxl345.py /home/pi/Documents/Minion_scripts/')
 os.system('sudo cp /home/pi/Documents/drivers/KellerLD-python/kellerLD.py /home/pi/Documents/Minion_scripts/')
 os.system('sudo cp /home/pi/Documents/drivers/ms5837-python/ms5837.py /home/pi/Documents/Minion_scripts/')
 os.system('sudo cp -r /home/pi/Documents/drivers/tsys01-python/tsys01 /home/pi/Documents/Minion_scripts/')
