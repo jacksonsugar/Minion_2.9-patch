@@ -25,7 +25,7 @@ os.chdir('/home/pi/Documents/drivers/')
 os.system('git clone https://github.com/bluerobotics/tsys01-python.git')
 os.system('git clone https://github.com/bluerobotics/ms5837-python.git')
 os.system('git clone https://github.com/bluerobotics/KellerLD-python.git')
-os.system('https://github.com/pimoroni/adxl345-python.git')
+os.system('git clone https://github.com/pimoroni/adxl345-python.git')
 os.system('git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git')
 # Install adc driver
 os.chdir('Adafruit_Python_ADS1x15/')
