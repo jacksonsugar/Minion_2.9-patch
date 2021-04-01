@@ -137,6 +137,9 @@ if iniTmp == True:
 
 file.close()
 
+if iniP100 and iniP30 == False:
+    Pres_ini = 2000
+
 if __name__ == '__main__':
 
     if Pres_ini == "Broken":
@@ -164,40 +167,47 @@ if __name__ == '__main__':
 
             file = open(file_name,"a")
 
-            if Psensor.read():
+            sensor_string = ''
 
-                if iniTmp == True:
+            if iniP100 or iniP30 == True:
 
-                    if not sensor_temp.read():
-                        print("Error reading sensor")
-                        iniTmp = False
-
-                    print("Temperature_accurate: %0.2f C" % sensor_temp.temperature())
-
-                    file.write("{},{},{}\n".format(Psensor.pressure(), Psensor.temperature(), sensor_temp.temperature()))
+                if Psensor.read():
+                    Ppressure = Psensor.pressure()
+                    Ptemperature = Psensor.temperature()
+                    Pres_data = "{},{},".format(Ppressure, Ptemperature)
+                    print("Pressure sensor data: {}".format(Pres_data))
+                    sensor_string = "{}{}".format(sensor_string,Pres_data)
+                    Pres_ini = Ppressure
 
                 else:
+                    print('Pressure Sensor ded')
+                    file.write('Pressure Sensor fail')
+                    abortMission(configLoc)
+                
+                if Ppressure >= MAX_Depth:
+                    file.write("Minion Exceeded Depth Maximum!")
+                    abortMission(configLoc)
 
-                    file.write("{},{}\n".format(Psensor.pressure(), Psensor.temperature()))
+            if iniTmp == True:
 
-            else:
-                print('Sensor ded')
-                file.write('Sensor fail')
-                abortMission(configLoc)
-              
-            Pres_ini = Psensor.pressure()
+                if not sensor_temp.read():
+                    print("Error reading sensor")
+                    iniTmp = False
+
+                Temp_acc = sensor_temp.temperature()
+
+                print("Temperature_accurate: {} C".format(Temp_acc))
+
+                sensor_string = '{}{}'.format(sensor_string, Temp_acc)
+
             
-            print(Pres_ini)
-
-            if Pres_ini >= MAX_Depth:
-                file.write("Minion Exceeded Depth Maximum!")
-                abortMission(configLoc)
+            file.write("{}\n".format(sensor_string))
 
             NumSamples = NumSamples + 1
 
             time.sleep(Sf)
 
-        file.close()
+
         os.system('sudo python /home/pi/Documents/Minion_scripts/Iridium_gps.py')
         GPIO.output(data_rec, 0)
 
