@@ -17,7 +17,7 @@ print('Replacing new files...')
 
 os.system('sudo cp updates/Minion_config.ini /home/pi/Desktop/Minion_config.ini')
 
-os.system('sudo cp updates/Iridium_gps.py updates/minsat.py updates/Minion_2.9_Systemtest.py updates/Minion_DeploymentHandler.py updates/Recovery_Sampler.py updates/Extended_Sampler.py updates/TempPres.py /home/pi/Documents/Minion_scripts/')
+os.system('sudo cp updates/Recovery_Sampler_Burn.py updates/Iridium_gps.py updates/minsat.py updates/Minion_2.9_Systemtest.py updates/Minion_DeploymentHandler.py updates/Recovery_Sampler.py updates/Extended_Sampler.py updates/TempPres.py /home/pi/Documents/Minion_scripts/')
 
 os.system('sudo mkdir /home/pi/Documents/drivers')
 # Clone repos
