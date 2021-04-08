@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
     elif len(os.listdir('{}/minion_pics'.format(configDir))) >= TotalSamples or Abort == True:
         GPIO.output(IO328, 0)
-        os.system('sudo python /home/pi/Documents/Minion_scripts/Recovery_Sampler.py &')
+        os.system('sudo python /home/pi/Documents/Minion_scripts/Recovery_Sampler_Burn.py &')
 
     else:
         if iniImg == True:
