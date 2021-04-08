@@ -11,10 +11,13 @@ import configparser
 import sys
 
 BURN = 33
+data_rec = 16
 
 samp_count = 1
 
 NumSamples = 0
+
+BURN_WIRE = False
 
 ps_test = "pgrep -a python"
 
