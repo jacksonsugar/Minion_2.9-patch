@@ -83,6 +83,10 @@ TotalSamples = Stime*60*60*Srate
 
 time.sleep(1)
 
+if len(os.listdir('{}/minion_data/FIN'.format(configDir))) == 0:
+    BURN_WIRE == True
+    GPIO.output(BURN,1)
+
 file = open(file_name,"a+")
 
 if iniP30 == True:
@@ -147,9 +151,10 @@ if __name__ == '__main__':
         os.system('sudo python /home/pi/Documents/Minion_scripts/Iridium_gps.py')
 
     if Abort == True:
+        GPIO.output(BURN,1)
         os.system('sudo python /home/pi/Documents/Minion_scripts/Iridium_gps.py')
 
-    if len(os.listdir('{}/minion_data/FIN'.format(configDir))) == 0:
+    if BURN_WIRE == True:
         GPIO.output(BURN,1)
 
         if iniImg == True:
@@ -213,4 +218,3 @@ if __name__ == '__main__':
 
     else:
         os.system('sudo python /home/pi/Documents/Minion_scripts/Iridium_gps.py')
-        GPIO.output(data_rec, 0)
