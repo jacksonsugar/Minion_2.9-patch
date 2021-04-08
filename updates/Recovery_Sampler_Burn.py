@@ -84,7 +84,7 @@ TotalSamples = Stime*60*60*Srate
 time.sleep(1)
 
 if len(os.listdir('{}/minion_data/FIN'.format(configDir))) == 0:
-    BURN_WIRE == True
+    BURN_WIRE = True
     GPIO.output(BURN,1)
 
 file = open(file_name,"a+")
