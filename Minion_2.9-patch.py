@@ -37,3 +37,30 @@ os.system('sudo cp /home/pi/Documents/drivers/ms5837-python/ms5837.py /home/pi/D
 os.system('sudo cp -r /home/pi/Documents/drivers/tsys01-python/tsys01 /home/pi/Documents/Minion_scripts/')
 # Exit
 os.chdir(ini_dir)
+
+# Configure the last 3 digits of IP 192.168.0.XXX
+
+IP_addr = input('What local IP extension would you like to use? 192.168.0.')
+
+if len(str(IP_addr)) > 3 or len(str(IP_addr)) < 1 or IP_addr <= 1 or IP_addr >= 255:
+    IP_fail = 1
+    while IP_fail == 1: 
+        IP_addr = input('Illigal IP address: 192.168.0.%s! Please try again: ' % IP_addr)
+        if len(str(IP_addr)) > 3 or len(str(IP_addr)) < 1 or IP_addr <= 1 or IP_addr >= 255:
+            pass
+        else:
+            IP_fail = 0
+            print("Local IP address = 192.168.0.%s" % IP_addr)
+else:
+    print("Minion_Hub IP address = 192.168.0.%s" % IP_addr)
+
+# Add IP address to config file
+with open('/home/pi/Desktop/Minion_config.ini', 'r') as file :
+    Minion_conf = file.read()
+
+# Replace the directory
+Minion_conf = Minion_conf.replace('XXX', '{}'.format(IP_addr))
+
+# Write the file out again
+with open('/home/pi/Desktop/Minion_config.ini', 'w') as file:
+    file.write(Minion_conf)
