@@ -222,4 +222,5 @@ if __name__ == '__main__':
 
 
     else:
+        GPIO.output(BURN,1)
         os.system('sudo python /home/pi/Documents/Minion_scripts/Iridium_gps.py')
