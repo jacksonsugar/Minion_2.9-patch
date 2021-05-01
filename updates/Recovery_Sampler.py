@@ -61,6 +61,8 @@ iniTmp = str2bool(config['Sampling_scripts']['Temperature'])
 iniO2  = str2bool(config['Sampling_scripts']['Oxybase'])
 iniAcc = str2bool(config['Sampling_scripts']['ACC_100Hz'])
 
+MAX_Depth = int(config['Mission']['MAX_Depth'])
+
 firstp = open("/home/pi/Documents/Minion_scripts/timesamp.pkl","rb")
 samp_time = pickle.load(firstp)
 
